@@ -53,6 +53,7 @@ export const TextSmall = styled.p`
 export const LinkButton = styled(Link)`
   color: #fff;
   text-decoration: none;
+  margin-left: 15px;
 
   &:hover {
     text-decoration: underline;

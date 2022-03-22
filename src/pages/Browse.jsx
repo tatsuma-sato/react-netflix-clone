@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import HeaderContainer from "../containers/Header.container";
+import useContent from "../hooks/use-content";
 
 const Browse = () => {
-  return (
-    <div>Browse</div>
-  )
-}
+  const { series } = useContent("series");
+  const { films } = useContent("films");
 
-export default Browse
+  return <HeaderContainer></HeaderContainer>;
+};
+
+export default Browse;

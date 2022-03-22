@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Background = styled.div`
-display: flex
-flex-direction: column;
-background: url(${({ src }) =>
-  src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg.jpg"})
-     top left / cover no-repeat
+  display: flex;
+  flex-direction: column;
+  background: url(${({ src }) =>
+      src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg.jpg"})
+    top left / cover no-repeat;
 `;
 
 export const Container = styled.div`
@@ -55,4 +55,21 @@ export const ButtonLink = styled(Link)`
   &:hover {
     backgournd-color: #d40612;
   }
+`;
+
+export const Button = styled.button`
+  width: 100px;
+  height: 50px;
+  display: block;
+  background-color: #e50914;
+  width: 84px;
+  height: fit-content;
+  color: white;
+  border: 0;
+  font-size: 15px;
+  border-radius: 3px;
+  padding: 8px 17px;
+  cursor: pointer;
+  border-box: border-box;
+  text-decoration: none;
 `;

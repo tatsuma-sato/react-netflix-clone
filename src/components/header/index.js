@@ -5,7 +5,7 @@ import {
   Background,
   Container,
   ButtonLink,
-  
+  Button,
 } from "./styles/Header.styles";
 
 const Header = ({ bg = true, children, restProps }) => {
@@ -26,6 +26,10 @@ Header.Logo = function HeaderFrame({ to, ...restProps }) {
       <Logo {...restProps} />
     </Link>
   );
+};
+
+Header.Button = function HeaderButton({ children, ...restProps }) {
+  return <Button {...restProps}>{children}</Button>;
 };
 
 export default Header;
