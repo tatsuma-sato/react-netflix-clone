@@ -26,7 +26,7 @@ export const SpinnerRotate = styled.div`
   width: 64px;
   height: 64px;
   border: 8px solid;
-  border-color: #00cc66 transparent #00cc66 transparent;
+  border-color: #e50914 transparent #e50914 transparent;
   border-radius: 50%;
   animation: ${spin} 1.2s linear infinite;
 `;
