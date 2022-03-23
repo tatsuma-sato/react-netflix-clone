@@ -51,13 +51,14 @@ Header.Search = function HeaderSearch({
         onClick={() => setSearchActive((searchActive) => !searchActive)}
       >
         <img src="/images/icons/search.png" alt="search" />
-        <SearchInput
-          value={searchTerm}
-          onChange={({ target }) => setSearchTerm(target.value)}
-          placeholder="Search films and series"
-          active={searchActive}
-        />
       </SearchIcon>
+
+      <SearchInput
+        value={searchTerm}
+        onChange={({ target }) => setSearchTerm(target.value)}
+        placeholder="Search films and series"
+        active={searchActive}
+      />
     </Search>
   );
 };
@@ -75,7 +76,7 @@ Header.Text = function HeaderText({ children, ...restProps }) {
 };
 
 Header.TextLink = function HeaderTextLink({ children, ...restProps }) {
-  return <Link>{children}</Link>;
+  return <Link {...restProps}>{children}</Link>;
 };
 
 Header.Frame = function HeaderFrame({ children, ...restProps }) {

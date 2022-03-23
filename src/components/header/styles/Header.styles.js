@@ -1,5 +1,5 @@
 import { Link as ReachRouterLink } from "react-router-dom";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 export const Background = styled.div`
   display: flex;
@@ -34,7 +34,7 @@ export const Link = styled.p`
   color: #fff;
   text-decoration: none;
   margin-right: 30px;
-  font-weight: ${({ active }) => (active === "true" ? "700" : "normal")};
+  font-weight: ${({ active }) => (active === true ? "700" : "normal")};
   cursor: pointer;
 
   &:hover {
@@ -63,6 +63,7 @@ export const PlayButton = styled.button`
   font-size: 20px;
   margin-top: 30px;
   cursor: pointer;
+  transition: background-color 0.2s;
 
   &:hover {
     background-color: #ff1e1e;
