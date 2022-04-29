@@ -82,7 +82,11 @@ Card.Feature = function CardFeature({ children, category, ...restPorps }) {
 
   return showFeature ? (
     <Feature
-      src={`/images/${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`}
+      src={
+        itemFeature.largeImg
+          ? itemFeature.largeImg
+          : `/images/${category}}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`
+      }
       {...restPorps}
     >
       <Content>
@@ -97,8 +101,10 @@ Card.Feature = function CardFeature({ children, category, ...restPorps }) {
             {itemFeature.maturity < 12 ? "PG" : itemFeature.maturity}
           </Maturity>
           <FeatureText fontWidth="bold">
-            {itemFeature.genre.charAt(0).toUpperCase() +
-              itemFeature.genre.slice(1)}
+            {itemFeature.genres.map((genre) => {
+              return genre.charAt(0).toUpperCase() + genre.slice(1) + " ";
+            })}
+            {/* // itemFeature.genre.slice(1) */}
           </FeatureText>
         </Group>
         {children}

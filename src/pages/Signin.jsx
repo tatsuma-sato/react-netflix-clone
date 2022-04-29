@@ -43,6 +43,9 @@ const Signin = () => {
           <Form.Title>Sign In</Form.Title>
           {errorMessage && <Form.Error>{errorMessage}</Form.Error>}
           <Form.Base onSubmit={handleSignin} method="post">
+            <span style={{ color: "white" }}>demo</span>
+            <span style={{ color: "white" }}>Email: user@mail.com</span>
+            <span style={{ color: "white" }}>Password: 123123</span>
             <Form.Input
               placeholder="email address"
               value={email}

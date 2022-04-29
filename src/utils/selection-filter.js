@@ -1,4 +1,4 @@
-export default function selectionFilter({ series, films }) {
+export default function selectionFilter({ series, films, test }) {
   return {
     series: [
       {
@@ -25,23 +25,35 @@ export default function selectionFilter({ series, films }) {
     films: [
       {
         title: "Drama",
-        data: films.filter((item) => item.genre === "drama"),
+        data: test.filter((item) => item.genres.includes("drama") === true),
       },
       {
         title: "Thriller",
-        data: films.filter((item) => item.genre === "thriller"),
+        data: test.filter((item) => item.genres.includes("thriller")),
       },
       {
         title: "Children",
-        data: films.filter((item) => item.genre === "children"),
+        data: test.filter((item) => item.genres.includes("children")),
       },
       {
         title: "Suspense",
-        data: films.filter((item) => item.genre === "suspense"),
+        data: test.filter((item) => item.genres.includes("suspense")),
       },
       {
         title: "Romance",
-        data: films.filter((item) => item.genre === "romance"),
+        data: test.filter((item) => item.genres.includes("romance")),
+      },
+      {
+        title: "Animation",
+        data: test.filter((item) => item.genres.includes("animation")),
+      },
+      {
+        title: "Action",
+        data: test.filter((item) => item.genres.includes("action")),
+      },
+      {
+        title: "SF",
+        data: test.filter((item) => item.genres.includes("science fiction")),
       },
     ],
   };

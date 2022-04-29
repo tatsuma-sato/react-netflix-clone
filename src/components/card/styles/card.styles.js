@@ -62,6 +62,8 @@ export const Text = styled.p`
 export const Entities = styled.div`
   display: flex;
   flex-direction: row;
+  padding-left: 20px;
+  padding-right: 20px;
 `;
 
 export const Meta = styled.div`
@@ -75,9 +77,11 @@ export const Meta = styled.div`
 export const Image = styled.img`
   border: 0;
   width: 100%;
+  min-width: 200px;
   max-width: 305px;
   cursor: pointer;
   height: auto;
+  overflow: hidden;
   padding: 0;
   margin: 0;
 `;
@@ -101,22 +105,6 @@ export const Item = styled.div`
       z-index: 100;
     }
   }
-
-  &:first-of-type {
-    margin-left: 56px;
-
-    @media (max-width: 1000px) {
-      margin-left: 30px;
-    }
-  }
-
-  &:last-of-type {
-    margin-right: 56px;
-
-    @media (max-width: 1000px) {
-      margin-right: 30px;
-    }
-  }
 `;
 
 export const FeatureText = styled.p`
@@ -127,7 +115,12 @@ export const FeatureText = styled.p`
   margin: 0;
 
   @media (max-width: 600px) {
+    max-width: 200px;
     line-height: 22px;
+  }
+
+  @media (min-width: 700px) {
+    min-width: 400px;
   }
 `;
 

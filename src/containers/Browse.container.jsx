@@ -7,6 +7,13 @@ import * as ROUTES from "../constants/routes";
 import logo from "../logo.svg";
 import FooterContainer from "./Footer.container";
 import { useNavigate } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y, Mousewheel } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/mousewheel";
 
 const BrowseContainer = ({ slides }) => {
   const navigate = useNavigate();
@@ -51,7 +58,7 @@ const BrowseContainer = ({ slides }) => {
   return profile.displayName ? (
     <>
       {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
-      <Header src="joker1" dontShowOnSmallViewPort>
+      <Header src="Spider-Man" dontShowOnSmallViewPort>
         <Header.Frame>
           <Header.Group>
             <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
@@ -118,17 +125,38 @@ const BrowseContainer = ({ slides }) => {
           <Card key={`${category}-${slideItem.title.toLowerCase()}`}>
             <Card.Title>{slideItem.title}</Card.Title>
             <Card.Entities>
-              {slideItem.data.map((item) => (
-                <Card.Item key={item.id} item={item}>
-                  <Card.Image
-                    src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}
-                  />
-                  <Card.Meta>
-                    <Card.SubTitle>{item.title}</Card.SubTitle>
-                    <Card.Text>{item.description}</Card.Text>
-                  </Card.Meta>
-                </Card.Item>
-              ))}
+              <Swiper
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                slidesPerView={"auto"}
+                spaceBetween={15}
+                navigation
+                mousewheel
+                pagination={{ clickable: true }}
+                scrollbar={{ draggable: true }}
+                breakpoints={{
+                  1000: {
+                    slidesPerView: 9,
+                  },
+                }}
+              >
+                {slideItem.data.map((item) => (
+                  <SwiperSlide key={item.id}>
+                    <Card.Item item={item}>
+                      <Card.Image
+                        src={
+                          item.img
+                            ? item.img
+                            : `/images/${category}/${item.genre}/${item.slug}/small.jpg`
+                        }
+                      />
+                      <Card.Meta>
+                        <Card.SubTitle>{item.title}</Card.SubTitle>
+                        <Card.Text>{item.description}</Card.Text>
+                      </Card.Meta>
+                    </Card.Item>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </Card.Entities>
             <Card.Feature category={category}>
               <Player>

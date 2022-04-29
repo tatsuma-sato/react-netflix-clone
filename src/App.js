@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import * as ROUTES from "./constants/routes";
+import { addDatabase } from "./data";
 import { IsUserRedirect, PrivateRoute } from "./helpers/routes";
 import { useAuthListner } from "./hooks/useAuthStatus";
 import { Home, Browse, Signin, Signup } from "./pages";
+import { fetchMoives } from "./utils/getMovie";
 
 function App() {
   const { user } = useAuthListner();
+
+  // useEffect(() => {
+  //   //   fetchMoives();
+
+  //   // addDatabase();
+  // }, []);
 
   return (
     <>
